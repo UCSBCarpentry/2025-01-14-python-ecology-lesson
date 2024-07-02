@@ -54,12 +54,12 @@ Select your operating system from the options below.
 
 ### Windows {#anaconda-windows}
 
-1. Open [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual) in your web browser.
+1. Open [https://www.anaconda.com/download/success](https://www.anaconda.com/download/success) in your web browser.
 
-2. Download the Anaconda Python 3 installer for Windows.
+2. Download the Anaconda Python 3.12 installer for Windows.
 
-3. Double-click the executable and install Python 3 using the recommended settings.
-  Make sure that **Register Anaconda as my default Python 3.x** option is checked --
+3. Double-click the executable and install Python 3.12 using the recommended settings.
+  Make sure that **Register Anaconda as my default Python 3.12** option is checked --
   it should be in the latest version of Anaconda.
 
 4. Verify the installation:
@@ -77,12 +77,12 @@ Select your operating system from the options below.
 
 ### MacOS {#anaconda-macos}
 
-1. Visit [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual) in your web browser.
+1. Visit [https://www.anaconda.com/download/success](https://www.anaconda.com/download/success) in your web browser.
 
-2. Download the Anaconda Python 3 installer for macOS.
+2. Download the Anaconda Python 3.12 installer for macOS.
   These instructions assume that you use the graphical installer `.pkg` file.
 
-3. Follow the Anaconda Python 3 installation instructions.
+3. Follow the Anaconda Python 3.12 installation instructions.
   Make sure that the install location is set to "Install only for me"
   so Anaconda will install its files locally, relative to your home directory.
   Installing the software for all users tends to create problems in the long run
@@ -106,9 +106,9 @@ Select your operating system from the options below.
 Note that the following installation steps require you to work from the terminal (shell).
 If you run into any difficulties, please request help before the workshop begins.
 
-1. Open [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual) in your web browser.
+1. Open [https://www.anaconda.com/download/success](https://www.anaconda.com/download/success) in your web browser.
 
-2. Download the Anaconda Python 3 installer for Linux.
+2. Download the Anaconda Python 3.12 installer for Linux.
 
 3. Install Anaconda using all of the defaults for installation.
   

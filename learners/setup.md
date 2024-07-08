@@ -189,16 +189,16 @@ You can deactivate the environment with:
 conda deactivate
 ```
 
-## Launch a Jupyter notebook
+## Launch JupyterLab
 
 After installing either Anaconda or Miniconda and the workshop packages,
-launch a Jupyter notebook by typing this command into the *terminal* or *anaconda-prompt*:
+launch JupyterLab by typing this command into the *terminal* or *anaconda-prompt*:
 
 ```bash
-jupyter notebook
+jupyter lab
 ```
 
-The notebook should open automatically in your browser. If it does not or you
+The JupyterLab interface should open automatically in your browser. If it does not or you
 wish to use a different browser, open this link: [http://localhost:8888](https://localhost:8888).
 
 ::: prereq :::::

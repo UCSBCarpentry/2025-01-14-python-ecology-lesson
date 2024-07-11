@@ -142,6 +142,57 @@ an element in the data structure.
 pd.read_csv("data/surveys.csv")
 ```
 
+:::::::::::::::::::::::::::::::::::::::::: discussion
+
+### Finding the path. Why am I getting an "FileNotFoundError" message?
+After running the previous command, you may encounter a red error message
+that says "FileNotFoundError", and at the very end of it says "[Errno 2] No such 
+file or directory: 'data/surveys.csv'". This error occurs when an incorrect path 
+to the file is specified.
+
+:::::::::::::::::::::::::::::::::
+
+:::::::::::: solution
+
+Jupyter typically uses the location of your notebook file (.ipynb) as the
+working directory for reading and writing files. Let's assume you
+organized your project folder as recommended in Episode 1, like the following
+tree shows:
+
+```
+python-workshop
+└───code
+│     └───ep2_starting_with_data.ipynb
+└───data
+│     └───surveys.csv
+└───documents
+```
+
+In this scenario, when I run ```pd.read_csv("data/surveys.csv")``` in my
+```ep2_starting_with_data.ipynb``` notebook, Python will look for the file
+in the directory ```python-workshop/code/data/surveys.csv```, because my working
+directory is where my notebook is located (i.e. inside the ```code``` folder).
+
+To specify the correct path from my working directory, I need to add "../" to the
+start of my path. Therefore, the correct command would be
+```pd.read_csv("../data/surveys.csv")```. ".." is a special directory name
+meaning “the directory containing this one”, or more succinctly, the parent of 
+the current directory. With the path as ```"../data/surveys.csv"```, I am
+first going to the parent directory, which is "python-workshop" in this case,
+after that to the "data" folder, and after that to the "survey.csv" file.
+
+For  future reference, if you need to know your working directory, you can use the
+built-in Python module "os" and its function "getcwd()", like the following block
+shows:
+
+```python
+# Import the os module and print the current working directory
+import os
+print(os.getcwd())
+```
+::::::::::::
+
+
 The above command yields the **output** below:
 
 ```output
@@ -267,6 +318,34 @@ surveys_df.head() # The head() method displays the first several lines of a file
 ```
 
 ### Exploring Our Species Survey Data
+A first good command to explore our dataset is the "info()" DataFrame method.
+It will show us useful information like: the number of rows (or entries) and 
+columns in our dataset; and the name, number of non-null values and data type of 
+each column.
+
+```python
+surveys_df.info() # The info() method displays a high-level summary of our
+                  # dataset.
+```
+
+```output
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 35549 entries, 0 to 35548
+Data columns (total 9 columns):
+ #   Column           Non-Null Count  Dtype  
+---  ------           --------------  -----  
+ 0   record_id        35549 non-null  int64  
+ 1   month            35549 non-null  int64  
+ 2   day              35549 non-null  int64  
+ 3   year             35549 non-null  int64  
+ 4   plot_id          35549 non-null  int64  
+ 5   species_id       34786 non-null  object 
+ 6   sex              33038 non-null  object 
+ 7   hindfoot_length  31438 non-null  float64
+ 8   weight           32283 non-null  float64
+dtypes: float64(2), int64(5), object(2)
+memory usage: 2.4+ MB
+```
 
 Again, we can use the `type` function to see what kind of thing `surveys_df` is:
 

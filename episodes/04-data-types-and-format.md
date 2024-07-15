@@ -72,7 +72,8 @@ is in the table below:
 | --------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object                | string                                | The most general dtype. Will be assigned to your column if column has mixed types (numbers and strings).                                                       | 
 | int64                 | int                                   | Numeric characters. 64 refers to the memory allocated to hold this character.                                                                                  | 
-| float64               | float                                 | Numeric characters with decimals. If a column contains numbers and NaNs (see below), pandas will default to float64, in case your missing value has a decimal. | 
+| float64               | float                                 | Numeric characters with decimals. If a column contains numbers and NaNs (see below), pandas will default to float64, in case your missing value has a decimal. |
+| bool                  | bool                                  | True/False values |
 | datetime64, timedelta[ns] | N/A (but see the [datetime] module in Python's standard library)                     | Values meant to hold time data. Look into these for time series experiments.                                                                                   | 
 
 ## Checking the format of our data

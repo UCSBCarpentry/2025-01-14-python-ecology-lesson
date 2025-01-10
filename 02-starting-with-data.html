@@ -355,7 +355,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Starting With Data</h1>
-        <p>Last updated on 2024-07-11 |
+        <p>Last updated on 2025-01-10 |
 
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/02-starting-with-data.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -523,7 +523,7 @@ An index refers to the position of an element in the data structure.</p>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Note that pd.read_csv is used because we imported pandas as pd</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>pd.read_csv(<span class="st">"data/surveys.csv"</span>)</span></code></pre>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>pd.read_csv(<span class="st">"../data/raw/surveys.csv"</span>)</span></code></pre>
 </div>
 <div id="finding-the-path.-why-am-i-getting-an-filenotfounderror-message" class="callout discussion">
 <div class="callout-square">
@@ -554,21 +554,22 @@ following tree shows:</p>
 └───code
 │     └───ep2_starting_with_data.ipynb
 └───data
-│     └───surveys.csv
+      └───raw
+            └───surveys.csv
+      └───clean
 └───documents</code></pre>
 <p>In this scenario, when I run
 <code>pd.read_csv("data/surveys.csv")</code> in my
 <code>ep2_starting_with_data.ipynb</code> notebook, Python will look for
-the file in the directory
-<code>python-workshop/code/data/surveys.csv</code>, because my working
-directory is where my notebook is located (i.e. inside the
-<code>code</code> folder).</p>
+the file in the directory <code>python-workshop/code/surveys.csv</code>,
+because my working directory is where my notebook is located
+(i.e. inside the <code>code</code> folder).</p>
 <p>To specify the correct path from my working directory, I need to add
 “../” to the start of my path. Therefore, the correct command would be
-<code>pd.read_csv("../data/surveys.csv")</code>. “..” is a special
+<code>pd.read_csv("../data/raw/surveys.csv")</code>. “..” is a special
 directory name meaning “the directory containing this one”, or more
 succinctly, the parent of the current directory. With the path as
-<code>"../data/surveys.csv"</code>, I am first going to the parent
+<code>"../data/raw/surveys.csv"</code>, I am first going to the parent
 directory, which is “python-workshop” in this case, after that to the
 “data” folder, and after that to the “survey.csv” file.</p>
 <p>For future reference, if you need to know your working directory, you
@@ -617,7 +618,7 @@ variable name by assigning a value to it using <code>=</code>.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">"data/surveys.csv"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">"../data/raw/surveys.csv"</span>)</span></code></pre>
 </div>
 <p>Note that Python does not produce any output on the screen when you
 assign the imported DataFrame to a variable. We can view the value of
@@ -1470,8 +1471,8 @@ been generated with <code>groupby()</code>.</li>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/02-starting-with-data.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/02-starting-with-data.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2024-07-11",
-  "datePublished": "2025-01-07"
+  "dateModified": "2025-01-10",
+  "datePublished": "2025-01-10"
 }
 
   </script><script>

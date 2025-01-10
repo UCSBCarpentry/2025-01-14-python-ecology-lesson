@@ -139,7 +139,7 @@ an element in the data structure.
 
 ```python
 # Note that pd.read_csv is used because we imported pandas as pd
-pd.read_csv("data/surveys.csv")
+pd.read_csv("../data/raw/surveys.csv")
 ```
 
 :::::::::::::::::::::::::::::::::::::::::: discussion
@@ -164,20 +164,22 @@ python-workshop
 └───code
 │     └───ep2_starting_with_data.ipynb
 └───data
-│     └───surveys.csv
+      └───raw
+            └───surveys.csv
+      └───clean
 └───documents
 ```
 
 In this scenario, when I run ```pd.read_csv("data/surveys.csv")``` in my
 ```ep2_starting_with_data.ipynb``` notebook, Python will look for the file
-in the directory ```python-workshop/code/data/surveys.csv```, because my working
+in the directory ```python-workshop/code/surveys.csv```, because my working
 directory is where my notebook is located (i.e. inside the ```code``` folder).
 
 To specify the correct path from my working directory, I need to add "../" to the
 start of my path. Therefore, the correct command would be
-```pd.read_csv("../data/surveys.csv")```. ".." is a special directory name
+```pd.read_csv("../data/raw/surveys.csv")```. ".." is a special directory name
 meaning “the directory containing this one”, or more succinctly, the parent of 
-the current directory. With the path as ```"../data/surveys.csv"```, I am
+the current directory. With the path as ```"../data/raw/surveys.csv"```, I am
 first going to the parent directory, which is "python-workshop" in this case,
 after that to the "data" folder, and after that to the "survey.csv" file.
 
@@ -223,7 +225,7 @@ or  `data`. We can create a new  object with a variable name by assigning a valu
 Let's call the imported survey data `surveys_df`:
 
 ```python
-surveys_df = pd.read_csv("data/surveys.csv")
+surveys_df = pd.read_csv("../data/raw/surveys.csv")
 ```
 
 Note that Python does not produce any output on the screen  when you assign the imported DataFrame to a variable.

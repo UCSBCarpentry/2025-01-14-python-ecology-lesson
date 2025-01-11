@@ -146,32 +146,22 @@ The file we've been using so far, `surveys.csv`, contains 25 years of data and i
 very large. We would like to separate the data for each year into a separate
 file.
 
-Let's start by making a new directory inside the folder `data` to store all of
+Let's start by making a new directory inside the folder `clean` to store all of
 these files using the module `os`:
 
 ```python
 import os
 
-os.mkdir('data/yearly_files')
+os.mkdir('../data/clean/yearly_files')
 ```
 
 The command `os.mkdir` is equivalent to `mkdir` in the shell. Just so we are
-sure, we can check that the new directory was created within the `data` folder:
+sure, we can check that the new directory was created within the `clean` folder:
 
 ```python
-os.listdir('data')
+os.listdir('data/clean')
 ```
 
-```output
-['plots.csv',
- 'portal_mammals.sqlite',
- 'species.csv',
- 'survey2001.csv',
- 'survey2002.csv',
- 'surveys.csv',
- 'surveys2002_temp.csv',
- 'yearly_files']
-```
 
 The command `os.listdir` is equivalent to `ls` in the shell.
 
@@ -184,13 +174,13 @@ that performs those three steps in sequence for the year 2002:
 import pandas as pd
 
 # Load the data into a DataFrame
-surveys_df = pd.read_csv('data/surveys.csv')
+surveys_df = pd.read_csv('../data/raw/surveys.csv')
 
 # Select only data for the year 2002
 surveys2002 = surveys_df[surveys_df.year == 2002]
 
 # Write the new DataFrame to a CSV file
-surveys2002.to_csv('data/yearly_files/surveys2002.csv')
+surveys2002.to_csv('../data/clean/yearly_files/surveys2002.csv')
 ```
 
 To create yearly data files, we could repeat the last two commands over and
@@ -240,7 +230,7 @@ Putting this into our for loop we get
 
 ```python
 for year in surveys_df['year'].unique():
-   filename='data/yearly_files/surveys' + str(year) + '.csv'
+   filename='../data/clean/yearly_files/surveys' + str(year) + '.csv'
    print(filename)
 ```
 
@@ -277,7 +267,7 @@ We can now add the rest of the steps we need to create separate text files:
 
 ```python
 # Load the data into a DataFrame
-surveys_df = pd.read_csv('data/surveys.csv')
+surveys_df = pd.read_csv('../data/raw/surveys.csv')
 
 for year in surveys_df['year'].unique():
 
@@ -285,7 +275,7 @@ for year in surveys_df['year'].unique():
     surveys_year = surveys_df[surveys_df.year == year]
 
     # Write the new DataFrame to a CSV file
-    filename = 'data/yearly_files/surveys' + str(year) + '.csv'
+    filename = '../data/clean/yearly_files/surveys' + str(year) + '.csv'
     surveys_year.to_csv(filename)
 ```
 
@@ -297,7 +287,7 @@ just created to confirm that everything worked as expected.
 Notice that the code above created a unique filename for each year.
 
 ```python
-filename = 'data/yearly_files/surveys' + str(year) + '.csv'
+filename = '../data/clean/yearly_files/surveys' + str(year) + '.csv'
 ```
 
 Let's break down the parts of this name:
@@ -351,7 +341,7 @@ AND the file name itself.
    ```python
    for species in surveys_df['species_id'].dropna().unique():
        surveys_species = surveys_df[surveys_df.species_id == species]
-       filename = 'episodes/data/species_files/surveys' + species + '.csv'
+       filename = '../data/clean/species_files/surveys' + species + '.csv'
        surveys_species.to_csv(filename)
     ```
 
@@ -559,7 +549,7 @@ def one_year_csv_writer(this_year, all_data):
     surveys_year = all_data[all_data.year == this_year]
 
     # Write the new DataFrame to a csv file
-    filename = 'data/yearly_files/function_surveys' + str(this_year) + '.csv'
+    filename = '../data/clean/yearly_files/function_surveys' + str(this_year) + '.csv'
     surveys_year.to_csv(filename)
 ```
 
@@ -709,7 +699,7 @@ output to change.
        surveys_year = all_data[all_data.year == this_year]
        
        # Write the new DataFrame to a csv file
-       filename = 'data/yearly_files/function_surveys' + str(this_year) + '.csv'
+       filename = '../data/clean/yearly_files/function_surveys' + str(this_year) + '.csv'
        surveys_year.to_csv(filename)
        return filename
    

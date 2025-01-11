@@ -61,7 +61,7 @@ exercise, we will use the `surveys.csv` data set, with the `NA` values removed
 ```python
 import pandas as pd
 
-surveys_complete = pd.read_csv('data/surveys.csv')
+surveys_complete = pd.read_csv('../data/raw/surveys.csv')
 surveys_complete = surveys_complete.dropna()
 ```
 

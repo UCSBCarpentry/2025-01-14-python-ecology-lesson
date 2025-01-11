@@ -87,7 +87,7 @@ same `surveys.csv` dataset that we've used in previous lessons.
 import pandas as pd
 
 # Note that pd.read_csv is used because we imported pandas as pd
-surveys_df = pd.read_csv("data/surveys.csv")
+surveys_df = pd.read_csv("../data/raw/surveys.csv")
 ```
 
 Remember that we can check the type of an object like this:
@@ -422,7 +422,7 @@ in doing is working with only the columns that have full data. First, let's relo
 we're not mixing up all of our previous manipulations.
 
 ```python
-surveys_df = pd.read_csv("data/surveys.csv")
+surveys_df = pd.read_csv("../data/raw/surveys.csv")
 ```
 
 Next, let's drop all the rows that contain missing values. We will use the command `dropna`.
@@ -443,7 +443,7 @@ pandas doesn't include the index number for each line.
 
 ```python
 # Write DataFrame to CSV
-df_na.to_csv('data_output/surveys_complete.csv', index=False)
+df_na.to_csv('../data/clean/surveys_complete.csv', index=False)
 ```
 
 We will use this data file later in the workshop. Check out your working directory to make

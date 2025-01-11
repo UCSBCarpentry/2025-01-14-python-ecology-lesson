@@ -42,7 +42,7 @@ perform all kinds of operations with `.execute()`.
 import sqlite3
 
 # Create a SQL connection to our SQLite database
-con = sqlite3.connect("data/portal_mammals.sqlite")
+con = sqlite3.connect("../data/raw/portal_mammals.sqlite")
 
 cur = con.cursor()
 
@@ -65,7 +65,7 @@ statement to filter your results based on some parameter.
 import sqlite3
 
 # Create a SQL connection to our SQLite database
-con = sqlite3.connect("data/portal_mammals.sqlite")
+con = sqlite3.connect("../data/raw/portal_mammals.sqlite")
 
 cur = con.cursor()
 
@@ -92,7 +92,7 @@ import pandas as pd
 import sqlite3
 
 # Read sqlite query results into a pandas DataFrame
-con = sqlite3.connect("data/portal_mammals.sqlite")
+con = sqlite3.connect("../data/raw/portal_mammals.sqlite")
 df = pd.read_sql_query("SELECT * from surveys", con)
 
 # Verify that result of SQL query is stored in the dataframe
@@ -124,7 +124,7 @@ benchmarks][these benchmarks]).
 1. 
    ```python
    #Connect to the database
-   con = sqlite3.connect("data/portal_mammals.sqlite")
+   con = sqlite3.connect("../data/raw/portal_mammals.sqlite")
    
    cur = con.cursor()
    
@@ -148,7 +148,7 @@ benchmarks][these benchmarks]).
    ```python
    # Create two sqlite queries results, read as pandas DataFrame
    # Include 'year' in both queries so we have something to merge (join) on.
-   con = sqlite3.connect("data/portal_mammals.sqlite")
+   con = sqlite3.connect("../data/raw//portal_mammals.sqlite")
    df1 = pd.read_sql_query("SELECT year,COUNT(*) FROM surveys GROUP BY year", con)
    df2 = pd.read_sql_query("SELECT year,plot,SUM(wgt) FROM surveys GROUP BY \
            year,plot ORDER BY plot ASC",con)
@@ -203,7 +203,7 @@ with it on its own later.
 import pandas as pd
 import sqlite3
 
-con = sqlite3.connect("data/portal_mammals.sqlite")
+con = sqlite3.connect("../data/raw/portal_mammals.sqlite")
 
 # Load the data into a DataFrame
 surveys_df = pd.read_sql_query("SELECT * from surveys", con)
@@ -232,7 +232,7 @@ con.close()
 1. 
    ```python
    #Connect to the database
-   con = sqlite3.connect("data/portal_mammals.sqlite")
+   con = sqlite3.connect("../data/raw/portal_mammals.sqlite")
    
    # Read the results into a DataFrame
    df1 = pd.read_sql_query('SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex \

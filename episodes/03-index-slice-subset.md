@@ -60,7 +60,7 @@ episode. Let's reopen and read in the data again:
 import pandas as pd
 
 # Read in the survey CSV
-surveys_df = pd.read_csv("data/surveys.csv")
+surveys_df = pd.read_csv("../data/raw/surveys.csv")
 ```
 
 ## Indexing and Slicing in Python
@@ -305,7 +305,7 @@ Okay, that's enough of that. Let's create a brand new clean dataframe from
 the original data CSV file.
 
 ```python
-surveys_df = pd.read_csv("data/surveys.csv")
+surveys_df = pd.read_csv("../data/raw/surveys.csv")
 ```
 
 ## Slicing Subsets of Rows and Columns in Python

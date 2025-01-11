@@ -108,7 +108,7 @@ import matplotlib.pyplot as plt
 Now, let's read data and plot it!
 
 ```python
-surveys = pd.read_csv("data/surveys.csv")
+surveys = pd.read_csv("../data/raw/surveys.csv")
 my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
 plt.show() # not necessary in Jupyter Notebooks
 ```
@@ -285,7 +285,7 @@ whole dataset. Adapt the title and axes' labels using matplotlib.
 import pandas as pd
 import matplotlib.pyplot as plt
 
-discharge = pd.read_csv("data/bouldercreek_09_2013.txt",
+discharge = pd.read_csv("../data/raw/bouldercreek_09_2013.txt",
                         skiprows=27, delimiter="\t",
                         names=["agency", "site_id", "datetime",
                                "timezone", "flow_rate", "discharge_cd"])

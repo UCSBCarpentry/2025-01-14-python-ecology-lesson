@@ -31,7 +31,7 @@ surveys files into pandas DataFrames. In a Jupyter Notebook or iPython:
 
 ```python
 import pandas as pd
-surveys_df = pd.read_csv("data/surveys.csv",
+surveys_df = pd.read_csv("../data/raw/surveys.csv",
                          keep_default_na=False, na_values=[""])
 surveys_df
 ```
@@ -54,7 +54,7 @@ surveys_df
 ```
 
 ```python
-species_df = pd.read_csv("data/species.csv",
+species_df = pd.read_csv("../data/raw/species.csv",
                          keep_default_na=False, na_values=[""])
 species_df
 ```
@@ -133,7 +133,7 @@ pandas doesn't include the index number for each line.
 
 ```python
 # Write DataFrame to CSV
-vertical_stack.to_csv('data/out.csv', index=False)
+vertical_stack.to_csv('../data/clean/out.csv', index=False)
 ```
 
 Check out your working directory to make sure the CSV wrote out properly, and
@@ -142,18 +142,16 @@ it imports properly.
 
 ```python
 # For kicks read our output back into Python and make sure all looks good
-new_output = pd.read_csv('data/out.csv', keep_default_na=False, na_values=[""])
+new_output = pd.read_csv('../data/clean/out.csv', keep_default_na=False, na_values=[""])
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ### Challenge - Combine Data
 
-In the data folder, there is another folder called `yearly_files` 
+In the data folder, there are two files, `surveys2001.csv` and `surveys2002.csv`,
 that contains survey data broken down into individual files by year. 
-Read the data from two of these files,
-`surveys2001.csv` and `surveys2002.csv`,
-into pandas and combine the files to make one new DataFrame.
+Read the data from these two files into pandas and combine the files to make one new DataFrame.
 Create a plot of average plot weight by year grouped by sex.
 Export your results as a CSV and make sure it reads back into pandas properly.
 
@@ -161,8 +159,8 @@ Export your results as a CSV and make sure it reads back into pandas properly.
 
 ```python
 # read the files:
-survey2001 = pd.read_csv("data/yearly_files/surveys2001.csv")
-survey2002 = pd.read_csv("data/yearly_files/surveys2002.csv")
+survey2001 = pd.read_csv("../data/raw/surveys2001.csv")
+survey2002 = pd.read_csv("../data/raw/surveys2002.csv")
 # concatenate
 survey_all = pd.concat([survey2001, survey2002], axis=0)
 # get the weight for each year, grouped by sex:
@@ -178,9 +176,9 @@ plt.tight_layout()  # tip: use this to improve the plot layout.
 
 ```python
 # writing to file:
-weight_year.to_csv("weight_for_year.csv")
+weight_year.to_csv("../data/clean/weight_for_year.csv")
 # reading it back in:
-pd.read_csv("weight_for_year.csv", index_col=0)
+pd.read_csv("../data/clean/weight_for_year.csv", index_col=0)
 ```
 
 ::::::::::::::::::::::::::::::::
@@ -231,7 +229,7 @@ survey_sub = surveys_df.head(10)
 
 # Import a small subset of the species data designed for this part of the lesson.
 # It is stored in the data folder.
-species_sub = pd.read_csv('data/speciesSubset.csv', keep_default_na=False, na_values=[""])
+species_sub = pd.read_csv('../data/raw/speciesSubset.csv', keep_default_na=False, na_values=[""])
 ```
 
 In this example, `species_sub` is the lookup table containing genus, species, and

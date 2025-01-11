@@ -354,7 +354,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Combining DataFrames with Pandas</h1>
-        <p>Last updated on 2024-02-21 |
+        <p>Last updated on 2025-01-11 |
 
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/05-merging-data.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -405,7 +405,7 @@ iPython:</p>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">"data/surveys.csv"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">"../data/raw/surveys.csv"</span>,</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>                         keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>surveys_df</span></code></pre>
 </div>
@@ -430,7 +430,7 @@ iPython:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>species_df <span class="op">=</span> pd.read_csv(<span class="st">"data/species.csv"</span>,</span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>species_df <span class="op">=</span> pd.read_csv(<span class="st">"../data/raw/species.csv"</span>,</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>                         keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>species_df</span></code></pre>
 </div>
@@ -516,7 +516,7 @@ for each line.</p>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Write DataFrame to CSV</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>vertical_stack.to_csv(<span class="st">'data/out.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>vertical_stack.to_csv(<span class="st">'../data/clean/out.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre>
 </div>
 <p>Check out your working directory to make sure the CSV wrote out
 properly, and that you can open it! If you want, try to bring it back
@@ -525,7 +525,7 @@ into pandas to make sure it imports properly.</p>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># For kicks read our output back into Python and make sure all looks good</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>new_output <span class="op">=</span> pd.read_csv(<span class="st">'data/out.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>new_output <span class="op">=</span> pd.read_csv(<span class="st">'../data/clean/out.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
 </div>
 <div id="challenge---combine-data" class="callout challenge">
 <div class="callout-square">
@@ -534,10 +534,9 @@ into pandas to make sure it imports properly.</p>
 <div id="challenge---combine-data" class="callout-inner">
 <h3 class="callout-title">Challenge - Combine Data</h3>
 <div class="callout-content">
-<p>In the data folder, there is another folder called
-<code>yearly_files</code> that contains survey data broken down into
-individual files by year. Read the data from two of these files,
-<code>surveys2001.csv</code> and <code>surveys2002.csv</code>, into
+<p>In the data folder, there are two files, <code>surveys2001.csv</code>
+and <code>surveys2002.csv</code>, that contains survey data broken down
+into individual files by year. Read the data from these two files into
 pandas and combine the files to make one new DataFrame. Create a plot of
 average plot weight by year grouped by sex. Export your results as a CSV
 and make sure it reads back into pandas properly.</p>
@@ -549,14 +548,14 @@ and make sure it reads back into pandas properly.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># read the files:</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>survey2001 <span class="op">=</span> pd.read_csv(<span class="st">"data/yearly_files/surveys2001.csv"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>survey2002 <span class="op">=</span> pd.read_csv(<span class="st">"data/yearly_files/surveys2002.csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>survey2001 <span class="op">=</span> pd.read_csv(<span class="st">"../data/raw/surveys2001.csv"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>survey2002 <span class="op">=</span> pd.read_csv(<span class="st">"../data/raw/surveys2002.csv"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co"># concatenate</span></span>
 <span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>survey_all <span class="op">=</span> pd.concat([survey2001, survey2002], axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="co"># get the weight for each year, grouped by sex:</span></span>
@@ -571,9 +570,9 @@ and make sure it reads back into pandas properly.</p>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># writing to file:</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>weight_year.to_csv(<span class="st">"weight_for_year.csv"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>weight_year.to_csv(<span class="st">"../data/clean/weight_for_year.csv"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co"># reading it back in:</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>pd.read_csv(<span class="st">"weight_for_year.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>pd.read_csv(<span class="st">"../data/clean/weight_for_year.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -623,7 +622,7 @@ do this. We’ll also read in a subset of the species table.</p>
 <span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a></span>
 <span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co"># Import a small subset of the species data designed for this part of the lesson.</span></span>
 <span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co"># It is stored in the data folder.</span></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>species_sub <span class="op">=</span> pd.read_csv(<span class="st">'data/speciesSubset.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>species_sub <span class="op">=</span> pd.read_csv(<span class="st">'../data/raw/speciesSubset.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
 </div>
 <p>In this example, <code>species_sub</code> is the lookup table
 containing genus, species, and taxa names that we want to join with the
@@ -890,7 +889,7 @@ calculate and plot the distribution of:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -952,7 +951,7 @@ Biodiversity index.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1064,8 +1063,8 @@ format.</li>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/05-merging-data.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/05-merging-data.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2024-02-21",
-  "datePublished": "2025-01-10"
+  "dateModified": "2025-01-11",
+  "datePublished": "2025-01-11"
 }
 
   </script><script>
